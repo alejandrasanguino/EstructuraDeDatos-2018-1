@@ -1,0 +1,38 @@
+//3.	Hacer un programa para contar los dígitos pares que tiene un número N.
+//Ej. Si N= 5678312,  este tiene 3 dígitos pares (6, 8, 2).
+// DigPAr.cpp : Defines the entry point for the console application.
+//
+
+#include "stdafx.h"
+#include "conio.h"
+#include <iostream>
+
+using namespace std;
+
+
+void main()
+{
+	int num,par=0,r,c;
+ 
+	cout <<"Ingrese un numero: " << endl;
+  
+	cin >>num;
+
+	while(num>0)
+ {
+	r=num%10;
+ 
+	if(r%2==0)
+  {
+	 par = par + 1;
+  }
+
+	c=num/10;
+
+	num=c;
+ }
+
+	cout <<"Tiene "<< par << " numeros pares"<<endl;
+
+	_getch();
+}
