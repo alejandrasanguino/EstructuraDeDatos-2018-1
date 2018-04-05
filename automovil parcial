@@ -1,0 +1,100 @@
+#pragma once
+class automovil
+{
+private:
+	int a;
+	int p;
+
+public: 
+	automovil (void);
+    ~automovil (void);
+
+ // declaro mis funciones
+
+	void arrancar(int a);
+	
+	void parar(int p);
+
+}; // termino mi primera parte
+/ segunda parte
+// automovil.cpp
+
+#include "stdafx.h"
+#include "automovil.h"
+
+automovil::automovil(void)
+{
+}
+automovil::~automovil(void)
+{
+}
+// funcion ejecucuin de funciones 
+ 
+void automovil::arrancar(int a){
+}
+void automovil:: parar(int p){
+}
+// examen.cpp : Defines the entry point for the console application.
+//
+
+#include "stdafx.h"
+#include "automovil"
+#include <iostream>
+#include "conio.h"
+
+using namespace std;
+
+void main()
+
+{ automovil arrancar1,parar1; 
+
+int op,a,p; 
+
+do{
+
+     cout<<"------menu-------"<<endl;
+     cout<<"----1.arrancar automovil----"<<endl;
+     cout<<"----2.parar automovil-------"<<endl;
+     cout<<"----3.salir------"<<endl;
+
+do{
+
+cout<<"Ingrese el numero de su eleccion: ";
+
+cin>>op;
+
+}while(op!=0 && op>3);
+
+switch (op)
+
+{ case 1:
+
+{cout<<" quiere arranca: ";
+
+cin>> a;
+
+arrancar1.arrancar(a);
+
+break;}
+
+case 2:
+
+{cout<<"quiere parar: ";
+
+cin>>p;
+
+parar1.parar(p);
+
+break;}
+
+case 3:
+
+{cout<<"no valido ";
+
+break;}
+
+}}while(op!=3);
+
+getch();
+
+}
