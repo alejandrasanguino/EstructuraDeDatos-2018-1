@@ -1,0 +1,97 @@
+#pragma once
+
+
+struct NODO{
+	int dato;
+	NODO *sgte;
+};
+
+typedef struct NODO *Puntero;
+
+class PILA
+{
+private:
+	Puntero tope;
+public:
+	PILA(void);
+	~PILA(void);
+	void CargarPila(int n);
+	int EliminarPila(void);
+	void MostrarPila(void);
+};
+
+
+
+#include "StdAfx.h"
+#include "PILA.h"
+#include <iostream>
+
+
+PILA::PILA(void)
+{
+	tope=NULL;
+}
+
+
+PILA::~PILA(void)
+{
+}
+void PILA::CargarPila(int n){
+	Puntero p_nuevo_nodo;
+    p_nuevo_nodo = new(struct NODO);
+    p_nuevo_nodo->dato = n;
+    p_nuevo_nodo->sgte=tope;
+    tope = p_nuevo_nodo;
+}
+void PILA::MostrarPila(void){
+    Puntero p_aux;
+    p_aux=tope;
+    while(p_aux!=NULL){
+        std::cout<<"\t "<<p_aux->dato<<std::endl;
+        p_aux=p_aux->sgte;
+    }
+}
+int PILA::EliminarPila(void){
+    int x;
+    Puntero p_aux;
+    if(tope==NULL)
+        std::cout<<std::endl<<std::endl<<"Pila Vacia...!!";
+    else{
+        p_aux = tope;
+        x = p_aux->dato;
+        tope=tope->sgte;
+        delete(p_aux);
+    }
+    return x;
+}
+
+
+
+#include "stdafx.h"
+#include "PILA.h"
+#include <stdio.h>
+#include <iostream>
+#include <conio.h>
+#include <stdlib.h>
+
+using namespace std;
+
+void main(){
+	PILA mi_pila;
+    int valor;
+	int i;
+	for(i=1;i<=5;i++){
+		cout<<"Ingrese valor: ";
+		cin>>valor;
+		mi_pila.CargarPila(valor);
+		
+	}
+	cout<<endl;
+	mi_pila.MostrarPila();
+	
+	valor=mi_pila.EliminarPila();
+	cout<<"Valor recuperado="<<valor;
+	cout<<endl;
+	mi_pila.MostrarPila();
+	getch();
+}
