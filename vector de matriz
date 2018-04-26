@@ -1,0 +1,38 @@
+#include "stdafx.h"
+#include <conio.h>
+#include <iostream>
+#define MAX 30
+using namespace std;
+struct vec {
+	int v[MAX];
+};
+void cargarmatriz (vec m[MAX][MAX], int tam);
+void mostrarmatriz (vec m[MAX][MAX], int tam);
+
+void main (){
+	vec mat[MAX][MAX];
+	int n;
+	do {
+		cout<<"ingresa el tamaño"<<endl;
+		cin>>n;
+	}while ((n>MAX)|| (n<=0));
+	cargarmatriz (mat, n);
+	mostrarmatriz (mat,n);
+	getch ();
+}
+
+void cargarmatriz (vec m[MAX][MAX], int tam){
+	int i,j,k;
+	for (i=0; i<tam; i++){
+		for (j=0; j<tam; j++){
+			for (k=0; k<tam; k++){
+				cout<<" M["<<i<<"]["<<j<<"]= ";
+				cin>>m[i][j].v[k];
+				cout<<endl;
+			}
+		}
+	}
+}
+void mostrarmatriz (vec m[MAX][MAX], int tam){
+
+}
