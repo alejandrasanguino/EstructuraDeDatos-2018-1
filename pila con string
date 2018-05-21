@@ -1,0 +1,127 @@
+PILAS DE TIPO STRING
+#pragma once
+#include "string"
+const int max = 20;
+using namespace std;
+class pilas
+{private:
+string PILA[max];
+int tope;
+public:
+pilas();
+~pilas();
+bool pila_vacia();
+bool pila_llena();
+void insertar_pila(string n);//push
+string eliminar_pila();//pop
+};
+Cpp
+#include "pilas.h"
+#include <iostream>
+#include "conio.h"
+#inlcude “string.h”
+using namespace std;
+pilas::pilas()
+{
+tope = -1;
+}
+pilas::~pilas()
+{
+}
+bool pilas::pila_vacia()
+{
+bool k = false;
+if (tope == -1)
+{
+k = true;
+}
+return k;
+}
+bool pilas::pila_llena()
+{
+bool k = false;
+if (tope == max - 1)
+{
+k = true;
+}
+return k;
+}
+void pilas::insertar_pila(string n)
+{
+if (pila_llena() == false)
+{
+tope++;
+PILA[tope] = n;
+}
+else {
+cout << "la pila esta llena " << endl;
+}
+}
+string pilas::eliminar_pila()
+{
+string dato;
+if (pila_vacia() == false)
+{
+dato = PILA[tope];
+tope--;
+}
+else {
+dato = "";
+}
+return dato;
+}
+Main
+#include <iostream>
+#include "string.h"
+#include "pilas.h"
+#include "conio.h"
+using namespace std;
+void main()
+{
+pilas a;
+string x="";
+string p="";
+int opcion;
+do {
+cout << "-----------MENU-----------" << endl;
+cout << "1-Insertar Pila" << endl;
+cout << "2-Eliminas Pila" << endl;
+cout << "3-Pila LLENA" << endl;
+cout << "4-Pila Vacia" << endl;
+cout << "5-salir" << endl;
+cin >> opcion;
+switch (opcion){
+case 1:
+cout << "ingrese un dato" << endl;
+cin>>x;
+a.insertar_pila(x);
+break;
+case 2:
+p = a.eliminar_pila();
+if (p!="") {
+cout << p << endl;
+}
+else {
+cout << "la pila esta vacia" << endl;
+}
+break;
+case 3:
+if (a.pila_llena() == true) {
+cout << "la pila esta llena" << endl;
+}
+else {
+cout << "la pila no esta llena" << endl;
+}
+break;
+case 4:
+if (a.pila_vacia() == true) {
+cout << "la pila esta vacia" << endl;
+}
+else {
+cout << "la pila no esta vacia" << endl;
+}
+break;
+}
+} while (opcion < 5);
+_getch();
+}
